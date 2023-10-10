@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product cards</title>
+  <style>
+    div.container {
+      display: flex;
+      justify-content: space-around;
+    }
+    .product {
+      border: 1px solid black;
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+    div + .second-product {
+      background-color: aqua;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="product">
+        <img src="https://source.unsplash.com/user/c_v_r/100x100" alt="product image 1">
+        <h3>Product 1</h3>
+        <p>Product description 1</p>
+      </div>
+      <div class="product second-product">
+        <img src="https://source.unsplash.com/user/c_v_r/100x100" alt="product image 2">
+        <h3>Product 2</h3>
+        <p>Product description 2</p>
+      </div>
+      <div class="product">
+        <img src="https://source.unsplash.com/user/c_v_r/100x100" alt="product image 3">
+        <h3>Product 3</h3>
+        <p>Product description 3</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
