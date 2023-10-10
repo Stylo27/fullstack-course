@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    .container {
+      width: 30%;
+    }
+    .container input, textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>List of the most popular books</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name of the book</th>
+          <th>Author</th>
+          <th>Rating</th>
+          <th>Listen of the fragment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fragment: A Novel</td>
+          <td>Warren Fahy</td>
+          <td>95%</td>
+          <td>
+            <audio controls src="https://samples.audible.com/bk/rand/001883/bk_rand_001883_sample.mp3" \>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h1>About our library</h1>
+    <video controls width="500" height="300">
+      <source src="https://www.presentationload.com/out/pictures/art_pictures/SFB/SFB_en.mp4">
+    </video>
+    <h1>Add new book</h1>
+    <div class="container">
+      <form action="#/books" method="post">
+        <label for="book-name">Book Name:</label>
+        <input type="text" name="book[name]" id="book-name"/>
+  
+        <label for="book-description">Book Description:</label>
+        <textarea name="book[description]" id="book-description"></textarea>
+  
+        <label for="book-rating">Book Rating:</label>
+        <input type="range" name="book[rating]" id="book-rating" min="0" max="100"/>
+  
+        <label for="book-price">Book Price:</label>
+        <input type="number" name="book[price]" id="book-price" min="0" />
+  
+        <label for="book-image">Book Image:</label>
+        <input type="file" name="book[image]" id="book-image" />
+  
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <h1>Additional info</h1>
+    <p>
+      <cite>In this powerhouse of suspense</cite> - as brilliantly imagined as Jurassic Park and The Ruins - scientists have made a startling discovery: A fragment of a lost continent, an island with an ecosystem unlike any they’ve seen before...an ecosystem that could topple ours like a house of cards. The time is now. The place is the Trident, a long-range research vessel hired by the reality TV show Sealife. Aboard is a cast of ambitious young scientists. With a director dying for drama, tiny Henders Island might be just what the show needs. Until the first scientist sets foot on Henders - and the ultimate test of survival begins...
+
+      For when they reach the island’s shores, scientists are utterly unprepared for what they find - creatures unlike any ever recorded in natural history. This is not a lost world frozen in time, an island of mutants, or a lab where science has gone mad: This is the Earth as it might have looked after evolving on a separate path for half a billion years.
+
+      Soon the scientists will stumble on something more shocking than anything humanity has ever encountered: Because among the terrors of Henders Island, one life form defies any scientific theory - and must be saved at any cost.
+    </p>
+  </main>
+</body>
+</html>
