@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input events</title>
+
+  <script>
+    let studentData = {
+      name: null,
+      speciality: null,
+    };
+    function handleNameValue(event) {
+      studentData.name = handleValue(event);
+    };
+
+    function handleSpecialityValue(event) {
+      studentData.speciality = handleValue(event);
+    };
+
+    function handleValue(event) {
+      return event.target.value;
+    };
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      console.log('Submit')
+
+      alert(`Name: ${studentData.name}\nSpeciality: ${studentData.speciality}`)
+    }
+  </script>
+</head>
+<body>
+  <form action="#" onsubmit=handleSubmit(event)>
+    <input onblur=handleNameValue(event) type="text" placeholder="Enter name"/>
+    <input onblur=handleSpecialityValue(event) type="text" placeholder="Enter speciality"/>
+    <button type="submit">Print data</button>
+  </form>
+</body>
+</html>
