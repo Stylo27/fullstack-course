@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio page</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      display: flex;
+      justify-content: flex-start;
+      background-color: grey;
+      align-items: center;
+    }
+    footer {
+      margin-top: auto;
+      background-color: aquamarine;
+      display: flex;
+      flex-direction: column;
+    }
+    footer span:last-child {
+      font-weight: bold;
+    }
+    header>h1 {
+      padding-left: 10px;
+    }
+    .nav-title::before, .nav-title::after {
+      content: '*';
+    }
+    header>nav>ul {
+      display: flex;
+      list-style-type: none;
+      width: 100%;
+      justify-content: space-around;
+    }
+    .project-list {
+      list-style-type: none;
+    }
+    .project-list>li:nth-child(2) {
+      background-color: antiquewhite;
+    }
+    .project-list>li {
+      border: 1px solid #ddd;
+      margin-top: 20px;
+    }
+    .project-card {
+      padding-left: 10px;
+      padding-top: 10px;
+    }
+    .navigation-menu a:hover {
+      background-color: azure;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="nav-title">My portfolio</h1>
+    <nav class="navigation-menu">
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>My Projects</h1>
+    <ul class="project-list">
+      <li>
+        <div class="project-card">
+          <img src="#" alt="project 1 img"/>
+          <h3>Project 1</h3>
+          <p>Project 1 description</p>
+        </div>
+      </li>
+      <li>
+        <div class="project-card">
+          <img src="#" alt="project 2 img"/>
+          <h3>Project 2</h3>
+          <p>Project 2 description</p>
+        </div>
+      </li>
+    </ul>
+  </main>
+  <footer>
+    <h2>Contact me!</h2>
+    <span>Email: example@email.com</span>
+    <span>Tel: +123123123</span>
+  </footer>
+</body>
+</html>
