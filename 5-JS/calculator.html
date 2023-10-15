@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+
+  <script>
+    const userInput = {
+      firstValue: null,
+      secondValue: null,
+      sign: null,
+    };
+
+    function calculate() {
+      switch (userInput.sign) {
+        case '-': 
+          return userInput.firstValue - userInput.secondValue;
+        case '*': 
+          return userInput.firstValue * userInput.secondValue;
+        case '/': 
+          return userInput.firstValue / userInput.secondValue;
+        default: 
+          return userInput.firstValue + userInput.secondValue;
+      }
+    };
+
+    function handleFirstValue(event) {
+      userInput.firstValue = +handleValue(event);
+    };
+
+    function handleSecondValue(event) {
+      userInput.secondValue = +handleValue(event);
+    };
+
+    function handleValue(event) {
+      return event.target.value;
+    };
+
+    function handleSignChange(event) {
+      userInput.sign = handleValue(event) ?? '+';
+    };
+
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      alert(`Result: ${calculate()}`)
+    }
+  </script>
+</head>
+<body>
+  <form action="#" onsubmit=handleSubmit(event)>
+    <input onblur=handleFirstValue(event) type="text" placeholder="Enter first value"/>
+    <select onchange=handleSignChange(event)>
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="/">/</option>
+      <option value="*">*</option>
+    </select>
+    <input onblur=handleSecondValue(event) type="text" placeholder="Enter second value"/>
+    <button type="submit">Calculate!</button>
+  </form>
+</body>
+</html>
