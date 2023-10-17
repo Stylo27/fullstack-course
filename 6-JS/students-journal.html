@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      table, th, td {
+        border: 1px black solid;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Grade</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Oleksii</td>
+            <td></td>
+            <td>
+              <button onclick=addGrade(event)>Add grade!</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Oksana</td>
+            <td></td>
+            <td>
+              <button onclick=addGrade(event)>Add grade!</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <script> 
+      function addGrade(event) {
+        const grade = prompt('Add grade: ')
+        const selectedColumn = event.target.parentElement.previousElementSibling
+
+        setTimeout(() => {
+          console.log(selectedColumn.textContent += `${grade}, `)
+        }, 1000)
+      }
+    </script>
+  </body>
+</html>
