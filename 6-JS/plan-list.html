@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan list</title>
+    <style>
+      .completed {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <ul>
+        <li onclick=toggleCompleted(event)>Buy bread</li>
+        <li onclick=toggleCompleted(event)>Pay taxes</li>
+        <li onclick=toggleCompleted(event)>Call to friend</li>
+      </ul>
+    </main>
+
+    <script>
+      const elems = document.getElementsByTagName('li');
+
+      function toggleCompleted(event) {
+        event.target.classList.toggle('completed')
+      }
+
+      for (const element of elems) {
+        if(!element.classList.value.split(' ').includes('completed')) {
+          element.classList.add('completed');
+        } else { 
+          element.classList.remove('completed');
+        };
+      }
+    </script>
+  </body>
+</html>
