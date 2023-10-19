@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      table, th, td {
+        border: 1px black solid;
+      }
+      td {
+        height: 22px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Lesson</th>
+            <th>Time</th>
+            <th>Week day</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="tableContent">
+          <tr class="tableRow">
+            <td onclick=setLessonName(event)>Math</td>
+            <td onclick=setLessonTime(event)>4</td>
+            <td onclick=setLessonDay(event)>Wendnesday</td>
+            <td>
+              <button onclick=removeRow(event)>Delete</button>
+            </td>
+          </tr>
+          <tr class="tableRow">
+            <td onclick=setLessonName(event)>Geography</td>
+            <td onclick=setLessonTime(event)>2</td>
+            <td onclick=setLessonDay(event)>Monday</td>
+            <td>
+              <button onclick=removeRow(event)>Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <button onclick=addLesson()>Add lesson</button>
+    </main>
+    <script> 
+      const weekdays = [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ]
+      function addLesson(event) {
+        const table = document.querySelector('.tableContent');
+        const tableRow = document.createElement('tr');
+        tableRow.innerHTML = `<td onclick=setLessonName(event)></td>\n
+                              <td onclick=setLessonTime(event)></td>\n
+                              <td onclick=setLessonDay(event)></td>
+                              <td>\n
+                                <button onclick=removeRow(event)>Delete</button>\n
+                              </td>`;
+
+        table.appendChild(tableRow);
+      };
+
+      function setLessonDay(event) {
+        const day = prompt('Enter the weekday: ');
+        if (!weekdays.includes(day)) {
+          return alert('Enter please the proper weekday');
+        };
+        event.target.innerHTML = day;
+      };
+
+      function setLessonName(event) {
+        const name = prompt('Enter the name: ');
+        event.target.innerHTML = name;
+      };
+
+      function setLessonTime(event) {
+        const time = +prompt('Enter the time: ');
+        if (isNaN(time)) {
+          return alert('Enter please only numbers!');
+        };
+        event.target.innerHTML = time;
+      };
+
+      function removeRow(event) {
+        const confirm = confirm('Are you sure?');
+        if (confirm) {
+          event.target.parentElement.parentElement.remove();
+        };
+      };
+    </script>
+  </body>
+</html>

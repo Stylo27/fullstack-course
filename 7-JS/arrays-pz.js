@@ -1,0 +1,15 @@
+let books = ['The Witcher', 'Harry Potter'];
+console.log(books);
+books.push('1984');
+console.log(books);
+books = books.sort();
+console.log(books);
+books.pop();
+console.log(books);
+books.unshift('The Game of Thrones');
+console.log(books);
+books.shift();
+console.log(books);
+books[1] = 'The Hobbit';
+console.log(books);
+console.log(books.includes('Harry Potter'));
