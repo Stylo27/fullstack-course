@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Timer</title>
+  </head>
+  <body>
+    <form action="#" onsubmit=handleSubmit(event)>
+      <label for="duration">Duration</label>
+      <input type="number" name="duration"/>
+      <label for="message">Enter message</label>
+      <input type="textarea" name="message"/>
+      <button type="submit">Send</button>
+    </form>
+  </body>
+  <script>
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const duration = event.target.duration?.value;
+      const message = event.target.message?.value;
+
+      
+      delayedGreeting(duration, message).then((result) => {console.log(result)}).catch((error) => {console.log(error)})
+    };
+
+    const delayedGreeting = (duration, message) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if(duration > 10000) {
+            reject('Duration is too long');
+          } else {
+            resolve(message);
+          }
+        }, +duration)
+      })
+    }
+  </script>
+</html>

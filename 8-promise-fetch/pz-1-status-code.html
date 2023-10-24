@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status code</title>
+  <style>
+    .status-code-image {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="status-code-image">
+  </div>
+  <form action="#" onsubmit=handleSubmit(event)>
+    <label for="statusCode">Enter the status code:</label>
+    <input type="number" name="statusCode"/>
+    <button type="submit">Send!</button>
+  </form>
+</body>
+<script>
+  const handleSubmit = (event) => {
+    const statusCode = event.target.statusCode;
+    const image = null;
+    getImage(code).then((response) => { JSON.parse(response.json) }).then((data) => { image = data })
+
+    const imageBlockElement = document.getElementsByClassName('status-code-image');
+    imageBlockElement.appendChild(
+      `<img src="${image.url}">`
+    )
+  }
+
+  const getImage = (code) => {
+    const data = null;
+    const error = null;
+    return fetch(`https://http.dog/${code}.json`);
+  }
+</script>
+</html>
