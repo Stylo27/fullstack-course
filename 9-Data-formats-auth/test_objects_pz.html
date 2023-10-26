@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>PROTO: </p>
+  <p>
+    <code>
+
+      syntax = "proto3";
+  
+      message SomeMessage {
+      
+          message Address {
+              string street = 1;
+              string city = 2;
+              string zipcode = 3;
+          }
+      
+          uint32 id = 1;
+          string name = 2;
+          uint32 age = 3;
+          bool isStudent = 4;
+          repeated string courses = 5;
+          Address address = 6;
+      }
+    </code>
+  </p>
+    <br>
+  <p>YML/YAML: </p>
+  <p>
+    <code>
+      ---
+      id: 1
+      name: John Doe
+      age: 25
+      isStudent: true
+      courses:
+      - Math
+      - History
+      - English
+      address:
+        street: 123 Main Street
+        city: New York
+        zipcode: '10001'
+    </code>
+  </p>
+  <br>
+  <p>XML: </p>
+  <p>
+    <code>
+      <?xml version="1.0" encoding="UTF-8"?>
+      <root>
+        <address>
+            <city>New York</city>
+            <street>123 Main Street</street>
+            <zipcode>10001</zipcode>
+        </address>
+        <age>25</age>
+        <courses>
+            <element>Math</element>
+            <element>History</element>
+            <element>English</element>
+        </courses>
+        <id>1</id>
+        <isStudent>true</isStudent>
+        <name>John Doe</name>
+      </root>
+    </code>
+  </p>
+</body>
+</html>
