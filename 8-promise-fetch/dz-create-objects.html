@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object creator</title>
+  <style>
+    .object-show {
+      padding: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="object-show">
+  </div>
+  <form action="#" onsubmit=handleSubmit(event)>
+    <label for="objectName">Name:</label>
+    <input type="text" name="objectName"/>
+    <label for="objectYear">Year:</label>
+    <input type="text" name="objectYear"/>
+    <label for="objectPrice">Price:</label>
+    <input type="text" name="objectPrice"/>
+    <button type="submit">Send!</button>
+  </form>
+</body>
+<script>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const object = {
+      name: event.target.objectName.value,
+      price: event.target.objectPrice.value,
+      year: event.target.objectYear.value,
+    };
+    console.log(object)
+    const createdAt = null;
+  
+    saveObject(object).then(response => response.json())
+                      .then(data => {
+                        const objectBlockElement = document.querySelector('div.object-show');
+                        objectBlockElement.innerHTML = `CreatedAt: ${data.createdAt}`;
+                      })
+                      .catch(error => console.log(error))
+
+    
+  };
+
+  const saveObject = (object) => {
+    return fetch('https://api.restful-api.dev/objects', {
+                 method: 'POST',
+                 headers: {
+                  'Content-Type': 'application/json;charset=utf-8' 
+                 },
+                 body: JSON.stringify({ data: object })
+                }
+    );
+  };
+</script>
+</html>

@@ -22,7 +22,7 @@
 <script>
   const handleSubmit = (event) => {
     const statusCode = event.target.statusCode;
-    const image = null;
+    var image = null;
     getImage(code).then((response) => { JSON.parse(response.json) }).then((data) => { image = data })
 
     const imageBlockElement = document.getElementsByClassName('status-code-image');
@@ -32,8 +32,6 @@
   }
 
   const getImage = (code) => {
-    const data = null;
-    const error = null;
     return fetch(`https://http.dog/${code}.json`);
   }
 </script>
